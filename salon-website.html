@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ria's Makeover - Premium Beauty Salon & Spa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c17a5c;
+            --secondary: #d4a574;
+            --accent: #e8c4a0;
+            --dark: #2c2420;
+            --light: #faf7f4;
+            --white: #ffffff;
+        }
+
+        /* body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        } */
+            body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    }
+
+    h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    
+    }
+        /* Header & Navigation */
+        header {
+            background: rgba(44, 36, 32, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            background: rgba(44, 36, 32, 1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(193, 122, 92, 0.9) 0%, rgba(212, 165, 116, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=80') center/cover;
+            animation: zoomIn 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, rgba(44, 36, 32, 0.4) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .cta-button {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border: 2px solid var(--white);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: transparent;
+            color: var(--white);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 2rem;
+            background: var(--light);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(193, 122, 92, 0.2);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 8rem 2rem;
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(44, 36, 32, 0.9), transparent);
+            color: var(--white);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+.about {
+  padding: 80px 20px;
+  background: #fff;
+}
+
+.about-text {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #e91e63;
+}
+
+.about-text p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-box {
+  flex: 1 1 200px;
+  background: #fdf9f9;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-6px);
+}
+
+.feature-icon img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.feature-box h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #e91e63;
+}
+
+        /* About Section
+        .about {
+            padding: 8rem 2rem;
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+        }
+
+        .about-image {
+            position: relative;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+        /* Contact Section */
+.contact {
+  padding: 80px 20px;
+  background: #fdf9f9;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.contact-form, .contact-info {
+  flex: 1 1 350px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.contact-form button {
+  background: #e91e63;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #c2185b;
+}
+
+.contact-info h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #e91e63;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 20px;
+  color: #e91e63;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #c2185b;
+}
+        /* Contact Section
+        .contact {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            margin-top: 4rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 1.2rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--white);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(10px);
+        }
+
+        .contact-item h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        } */
+
+      .footer {
+  background: #1c1c1c;
+  color: #f5f5f5;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-brand h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #e91e63;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 16px;
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-social a i {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.footer-social a:hover {
+  color: #e91e63;
+}
+
+.footer-links h4,
+.footer-location h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #e91e63;
+}
+
+.footer-links ul,
+.footer-location ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-location li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #e91e63;
+}
+
+.footer-location p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.map-box {
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">Ria's Makeover</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-subtitle">Premium Beauty & Wellness</div>
+            <h1>Ria's Makeover</h1>
+            <p>Where elegance meets expertise. Experience transformation through our luxurious spa treatments, rejuvenating massages, and premium beauty services.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Book Appointment</a>
+                <a href="#services" class="cta-button secondary">Explore Services</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+<section id="services" class="services">
+  <div class="section-header">
+    <div class="section-subtitle">What We Offer</div>
+    <h2 class="section-title">Our Premium Services</h2>
+    <p class="section-description">Explore our curated range of beauty and wellness treatments designed to elevate your self-care experience.</p>
+  </div>
+  <div class="services-grid">
+
+    <!-- Haircuts & Styling -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1599940824399-b87987ceb16e?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Haircuts & Styling</h3>
+        <p>Precision cuts and styling tailored to your personality and hair type.</p>
+        <ul class="service-features">
+          <li>Basic Hair Cut</li>
+          <li>Advanced Hair Cut</li>
+          <li>Hair Trimming</li>
+          <li>Shampoo + Conditioning</li>
+          <li>Cut + Wash / Cut + Advanced Wash</li>
+        </ul>
+        <div class="price">From ₹500</div>
+      </div>
+    </div>
+
+    <!-- Hair Treatments -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1603252109361-8d3f3f0e3c4b?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Hair Treatments</h3>
+        <p>Restore your hair’s vitality with targeted solutions and nourishing therapies.</p>
+        <ul class="service-features">
+          <li>Anti-Dandruff Treatment</li>
+          <li>Anti-Hairfall Therapy</li>
+          <li>High Frequency Scalp Stimulation</li>
+          <li>Hair Spa</li>
+        </ul>
+        <div class="price">From ₹1,000</div>
+      </div>
+    </div>
+
+    <!-- Hair Oiling -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1613145993481-2f3e3e3e3e3e?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Hair Oiling Rituals</h3>
+        <p>Deep nourishment with premium oils to enhance scalp health and shine.</p>
+        <ul class="service-features">
+          <li>Coconut Oil Massage</li>
+          <li>Olive Oil Therapy</li>
+          <li>Argan Oil Treatment</li>
+        </ul>
+        <div class="price">From ₹400</div>
+      </div>
+    </div>
+
+    <!-- Hair Coloring & Styling -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1603570419960-8f4f3f3f3f3f?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Hair Color & Finish</h3>
+        <p>Vibrant shades and flawless finishes for every mood and occasion.</p>
+        <ul class="service-features">
+          <li>Root Touch-Up</li>
+          <li>Global Highlights</li>
+          <li>Per Streak / Global Color Chunks</li>
+          <li>Balayage</li>
+          <li>Blow Dry (Short / Medium / Large)</li>
+        </ul>
+        <div class="price">From ₹1,200</div>
+      </div>
+    </div>
+
+    <!-- Hair Texture Services -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1603570419960-8f4f3f3f3f3f?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Hair Texture & Smoothening</h3>
+        <p>Transform your hair with expert techniques for sleek, voluminous styles.</p>
+        <ul class="service-features">
+          <li>Tonging / Ironing (Short / Medium / Large)</li>
+          <li>Smoothing (Short / Medium / Large)</li>
+          <li>Keratin (Short / Medium / Long)</li>
+          <li>Botox Treatment</li>
+        </ul>
+        <div class="price">From ₹2,000</div>
+      </div>
+    </div>
+
+    <!-- Skin & Face Care -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1588776814546-ec7c0c6b5b1c?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Skin & Face Care</h3>
+        <p>Glow-enhancing treatments for radiant, refreshed skin.</p>
+        <ul class="service-features">
+          <li>Cleanup & Bleach</li>
+          <li>Fruit / Normal / Lotus / Aroma / O2 Facial</li>
+          <li>D-Tan (Face, Hand, Back, Tummy, Full Body)</li>
+        </ul>
+        <div class="price">From ₹800</div>
+      </div>
+    </div>
+
+    <!-- Waxing & Threading -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1588776814546-ec7c0c6b5b1c?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Waxing & Threading</h3>
+        <p>Smooth, precise grooming for a clean and polished look.</p>
+        <ul class="service-features">
+          <li>Waxing (Full Body / Custom Areas)</li>
+          <li>Threading (Upper Lip, Forehead, Chin, Eyebrow)</li>
+        </ul>
+        <div class="price">From ₹300</div>
+      </div>
+    </div>
+
+    <!-- Makeup Services -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Makeup Artistry</h3>
+        <p>Flawless makeup for every occasion, from subtle glow to bridal glam.</p>
+        <ul class="service-features">
+          <li>Eye Makeup & Eyeliner</li>
+          <li>Glow Party Makeup</li>
+          <li>Engagement Makeup</li>
+          <li>Bridal Makeup</li>
+        </ul>
+        <div class="price">From ₹2,000</div>
+      </div>
+    </div>
+
+    <!-- Hands & Feet -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Manicure & Pedicure</h3>
+        <p>Luxury nail care and spa treatments for perfectly pampered hands and feet.</p>
+        <ul class="service-features">
+          <li>Classic Manicure</li>
+          <li>Classic Pedicure</li>
+          <li>Spa Add-ons Available</li>
+        </ul>
+        <div class="price">From ₹800</div>
+      </div>
+    </div>
+
+    <!-- Body Treatments -->
+    <div class="service-card">
+      <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80')"></div>
+      <div class="service-content">
+        <h3>Body Treatments</h3>
+        <p>Exfoliate, polish, and rejuvenate your skin with our luxurious body rituals.</p>
+        <ul class="service-features">
+          <li>Body Scrubbing</li>
+          <li>Body Polishing</li>
+        </ul>
+        <div class="price">From ₹1,200</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="section-header">
+            <div class="section-subtitle">Our Work</div>
+            <h2 class="section-title">Transformation Gallery</h2>
+            <p class="section-description">Witness the magic of our expert touch through these stunning transformations.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Makeup">
+                <div class="gallery-overlay">
+                    <h4>Bridal Elegance</h4>
+                    <p>Perfect makeup for the perfect day</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560869713-da86a9ec65a7?w=600&q=80" alt="Spa">
+                <div class="gallery-overlay">
+                    <h4>Spa Serenity</h4>
+                    <p>Relaxation redefined</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="Hair">
+                <div class="gallery-overlay">
+                    <h4>Hair Artistry</h4>
+                    <p>Stunning styles and colors</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1595475884562-073c5652f8d8?w=600&q=80" alt="Nails">
+                <div class="gallery-overlay">
+                    <h4>Nail Perfection</h4>
+                    <p>Beautiful hands, beautiful you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Instagram Showcase -->
+<section class="instagram-showcase">
+  <div class="section-header">
+    <div class="section-subtitle">Follow Us</div>
+    <h2 class="section-title">On Instagram</h2>
+    <p class="section-description">See our latest transformations, behind-the-scenes moments, and beauty inspiration.</p>
+  </div>
+
+  <div class="insta-feed">
+    <!-- Replace with actual Instagram embed or images -->
+    <iframe src="https://snapwidget.com/embed/123456" class="insta-embed" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="section-header">
+    <div class="section-subtitle">Get in Touch</div>
+    <h2 class="section-title">Book Your Appointment</h2>
+    <p class="section-description">We’d love to pamper you. Reach out to us for bookings, queries, or consultations.</p>
+  </div>
+
+  <div class="contact-container">
+    <!-- Contact Form -->
+    <form class="contact-form">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Your Phone Number">
+      </div>
+      <div class="form-group">
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="cta-button">Send Message</button>
+    </form>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h3>Visit Us</h3>
+      <p>123 Beauty Lane, Kanpur, UP</p>
+      <h3>Call Us</h3>
+      <p>+91 98765 43210</p>
+      <h3>Email</h3>
+      <p>hello@riasmakeover.com</p>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section -->
+<section id="about" class="about">
+  <div class="about-content">
+    <div class="about-text">
+      <h2>About Ria's Makeover</h2>
+      <p>Welcome to Ria's Makeover, where beauty meets expertise and luxury meets comfort. Since our establishment, we've been dedicated to providing exceptional beauty and wellness services that transform not just how you look, but how you feel.</p>
+      <p>Our team of certified professionals brings years of experience and passion to every service we provide. We use only the finest international brands and latest techniques to ensure you receive the premium care you deserve.</p>
+      <p>At Ria's Makeover, we believe that every client is unique, and so should be their beauty experience. That's why we offer personalized consultations and customized treatments tailored to your individual needs and preferences.</p>
+      
+      <div class="about-features">
+        <div class="feature-box">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Premium Quality Icon">
+          </div>
+          <h4>Premium Quality</h4>
+          <p>International brands & products</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Expert Team Icon">
+          </div>
+          <h4>Expert Team</h4>
+          <p>Certified professionals</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png" alt="Personalized Care Icon">
+          </div>
+          <h4>Personalized Care</h4>
+          <p>Treatments tailored to you</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Luxury Experience Icon">
+          </div>
+          <h4>Luxury Experience</h4>
+          <p>Relax in a serene environment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Branding & Social -->
+    <div class="footer-brand">
+      <h3>Ria's Makeover</h3>
+      <p>Elegance. Expertise. Transformation.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/919876543210" target="_blank">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://instagram.com/riasmakeover" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Location & Hours -->
+    <div class="footer-location">
+      <h4>Visit Us</h4>
+      <p>123 Beauty Lane, Kanpur, Uttar Pradesh</p>
+      <h4>Opening Hours</h4>
+      <ul>
+        <li>Mon–Sat: 10:00 AM – 8:00 PM</li>
+        <li>Sunday: 11:00 AM – 6:00 PM</li>
+      </ul>
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902269743332!2d80.33187331445633!3d26.84669398315359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2d6f3c3f3f3%3A0x3c3f3f3f3f3f3f3f!2sKanpur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+          width="100%"
+          height="200"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ria's Makeover. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+                        
